@@ -1,3 +1,5 @@
+import random
+
 print("Olá Mundo")
 
 x = ["Carro", 1, 4, True] #List
