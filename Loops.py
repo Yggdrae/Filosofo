@@ -10,7 +10,8 @@ mtg = ["Dimir", "Selesnya",  "Gruul", "Orzhov"]
 """
     
 i = 0
-while i<=3:
+tam = len(mtg)
+while i<tam:
     print(mtg[i])
     i+=1
 print("Fim do programa.")
