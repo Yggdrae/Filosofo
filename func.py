@@ -8,10 +8,7 @@ def cadastro(nome):
 def consulta():
     consul = input("Entre com o nome a ser consultado: ")
     file = open("cadastros.txt", "r+")
-    lines = file.readlines()
-    for x in lines:
-        if x.find(consul) != -1:
-            print("Encontrado!")
+    print(file.read())
     os.system('pause')
     file.close()
 
