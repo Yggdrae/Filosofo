@@ -6,8 +6,12 @@ def cadastro(nome):
     file.close()
 
 def consulta():
+    consul = input("Entre com o nome a ser consultado: ")
     file = open("cadastros.txt", "r+")
-    print(file.read())
+    lines = file.readlines()
+    for x in lines:
+        if x.find(consul) != -1:
+            print("Encontrado!")
     os.system('pause')
     file.close()
 
