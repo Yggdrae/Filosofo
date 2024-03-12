@@ -11,6 +11,7 @@ def consulta():
     print(file.read())
     os.system('pause')
     file.close()
+    return 1
 
 op = 0
 
