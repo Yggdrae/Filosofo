@@ -26,4 +26,5 @@ while op != 4:
         op = 0
     elif op == "4":
         print("Encerrando o programa")
+        os.system('pause')
         break
