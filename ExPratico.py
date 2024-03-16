@@ -47,7 +47,7 @@ def NovoCard():
     r = input("Entre com a resistencia base.....: ")
     card = Card(n, c, a, r)
     cards.append(card)
-    print("Card adicionado!")
+    print("Card adicionado com sucesso!")
     os.system('pause')
 
 def infos():
