@@ -6,7 +6,7 @@ jogarnovamente = "s"
 jogadas = 0
 quemJoga=2 #1=CPU 2=Jogador
 maxJogadas=9
-vit = False
+vit = "n"
 velha = [
     [" ", " ", " "],
     [" ", " ", " "],
@@ -62,10 +62,10 @@ def cpuJoga():
 
 def verifvit():
     global velha
-    vit = False
+    vit = "n"
     simbolos = ["X", "O"]
     for s in simbolos:
-        vit = False
+        vit = "n"
         #Verifica Linhas
         il = ic = 0
         while il < 3:
@@ -77,9 +77,9 @@ def verifvit():
                 ic+=1
             il+=1
         if soma == 3:
-            vit = True
+            vit = s
             break
-        if vit!=False:
+        if vit!="n":
             break
         #Verifica Colunas
         il = ic = 0
@@ -92,9 +92,9 @@ def verifvit():
                 il+=1
             ic+=1
         if soma == 3:
-            vit = True
+            vit = s
             break
-        if vit!=False:
+        if vit!="n":
             break
         #Verifica Diagonal 1
         soma = 0
@@ -104,7 +104,7 @@ def verifvit():
                soma+=1
             idiag+=1
         if soma == 3:
-            vit = True
+            vit = s
             break
         #Verifica Diagonal 2
         soma = 0
@@ -116,7 +116,7 @@ def verifvit():
             idiagl+=1
             idiagc-=1
         if soma == 3:
-            vit = True
+            vit = s
             break
     return vit
 
@@ -129,19 +129,25 @@ def redef():
     jogadas = 0
     quemJoga=2 #1=CPU 2=Jogador
     maxJogadas=9
-    vit = False
+    vit = "n"
     velha = [
         [" ", " ", " "],
         [" ", " ", " "],
         [" ", " ", " "]
     ]
 
+while jogarnovamente=="s":
+    while True:
+        attjogo()
+        jogadorJoga()
+        cpuJoga()
+        attjogo()
+        vit = verifvit()
+        if vit != "n" or jogadas>=maxJogadas:
+            break
 
-while True:
-    attjogo()
-    jogadorJoga()
-    cpuJoga()
-    attjogo()
-    vit = verifvit()
-    if vit != False or jogadas>=maxJogadas:
-        break
+    print(Fore.RED + "FIM DE JOGO" + Fore.YELLOW)
+    if vit == "X" or vit == "O":
+        print("Jogador " + vit + " venceu")
+    jogarnovamente = input(Fore.BLUE + "Jogar Novamente? s/n: ")
+    redef()
