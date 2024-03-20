@@ -1,5 +1,6 @@
-import func
+import datetime
 
-res = dir(func)
+data = datetime.datetime.now()
+print(str(data.day) + "/" + str(data.month) + "/" + str(data.year))
 
-print(res)
+print(data.strftime("%d/%m/%y"))
